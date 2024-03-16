@@ -4,7 +4,9 @@ const app = express()
 const port = process.env.PORT || 3000
 
 app.get('/', (req, res) => {
-    res.send(`Hello ${faker.person.firstName()}!`)
+    const expression = 'faker.person.firstName()'
+    const value = eval(expression)
+    res.send(`Hello ${value}!`)
 })
 
 app.listen(port, () => {
